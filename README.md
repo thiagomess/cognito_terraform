@@ -1,1 +1,1 @@
-# cognito_terraform
+cognito-terraform
