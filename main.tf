@@ -15,7 +15,7 @@ provider "aws" {
 
 
 resource "aws_cognito_user_pool" "pool" {
-  name = "RL7-dev-portall"
+  name = "pool_users"
 
   username_attributes      = ["email"]
   auto_verified_attributes = ["email"]
@@ -71,9 +71,6 @@ resource "aws_cognito_user_pool" "pool" {
 
   }
 
-
-
-
   password_policy {
     minimum_length                   = "8"
     require_lowercase                = true
@@ -106,8 +103,6 @@ resource "aws_cognito_user_pool" "pool" {
   tags = {
     key = "value"
   }
-
-
 }
 
 resource "aws_cognito_user_pool_client" "client" {
@@ -134,7 +129,7 @@ resource "aws_cognito_user_pool_client" "client" {
 
 resource "aws_secretsmanager_secret" "secret" {
   count = 1
-  name  = "RL7-dev-portall"
+  name  = "secret_cognito"
 
   tags = {
     key = "value"
